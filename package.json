@@ -24,7 +24,9 @@
 		"object",
 		"value"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"@types/webpack": "^4.41.3"
+	},
 	"devDependencies": {
 		"ava": "^3.0.0",
 		"eslint-config-richienb": "^0.3.0",
