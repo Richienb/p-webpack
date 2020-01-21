@@ -1,6 +1,6 @@
 {
 	"name": "p-webpack",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Promise support for Webpack.",
 	"repository": "https://github.com/Richienb/p-webpack.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
