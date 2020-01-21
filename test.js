@@ -1,13 +1,15 @@
+const path = require("path")
 const test = require("ava")
-const theModule = require(".")
+const fs = require("fs-extra")
+const webpack = require(".")
 
-test("main", (t) => {
-	t.throws(() => {
-		theModule(123)
-	}, {
-		instanceOf: TypeError,
-		message: "Expected a string, got number",
+test("main", async (t) => {
+	await webpack({
+		entry: path.resolve(__dirname, "fixtures", "entry.js"),
+		output: {
+			path: path.resolve(__dirname, "dist"),
+			filename: "entry.js",
+		},
 	})
-
-	t.is(theModule("unicorns"), "unicorns & rainbows")
+	t.snapshot(await fs.readFile("dist/entry.js", "utf8"))
 })

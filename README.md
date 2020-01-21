@@ -1,41 +1,34 @@
-# The module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# Promise Webpack [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/p-webpack/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/p-webpack)
 
-My awesome module.
+Promise support for [Webpack](https://github.com/webpack/webpack).
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/p-webpack.png)](https://npmjs.com/package/p-webpack)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install p-webpack webpack
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const webpack = require("p-webpack");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+await webpack({
+	entry: "entry.js",
+	output: {
+		filename: "entry.bundle.js"
+	}
+})
 ```
 
 ## API
 
-### theModule(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
+### webpack(options?)
 
 #### options
 
 Type: `object`
 
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
+See https://webpack.js.org/configuration/#options

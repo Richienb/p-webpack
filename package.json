@@ -1,8 +1,8 @@
 {
-	"name": "the-module",
+	"name": "p-webpack",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Promise support for Webpack.",
+	"repository": "https://github.com/Richienb/p-webpack.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
@@ -11,23 +11,38 @@
 		"index.d.ts"
 	],
 	"engines": {
-		"node": ">=10"
+		"node": ">=4"
 	},
 	"scripts": {
 		"lint": "xo",
 		"test": "yarn lint && ava"
 	},
-	"keywords": [],
+	"keywords": [
+		"webpack",
+		"promise",
+		"options",
+		"object",
+		"value"
+	],
 	"dependencies": {},
 	"devDependencies": {
 		"ava": "^3.0.0",
 		"eslint-config-richienb": "^0.3.0",
+		"fs-extra": "^8.1.0",
+		"webpack": "^4.41.5",
 		"xo": "^0.25.3"
+	},
+	"peerDependencies": {
+		"webpack": "*"
 	},
 	"resolutions": {
 		"eslint": "^6.8.0"
 	},
 	"xo": {
-		"extends": "richienb/node"
+		"extends": "richienb/node",
+		"ignores": [
+			"fixtures/entry.js",
+			"fixtures/expected.js"
+		]
 	}
 }

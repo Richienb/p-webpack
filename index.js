@@ -1,7 +1,19 @@
 "use strict"
 
-module.exports = (input, { postfix = "rainbows" } = {}) => {
-	if (typeof input !== "string") throw new TypeError(`Expected a string, got ${typeof input}`)
+const webpack = require("webpack")
 
-	return `${input} & ${postfix}`
+class WebpackError extends Error {
+	constructor(error, stats) {
+		super(error ? "WebpackRuntimeError" : "WebpackCompilationError")
+
+		this.name = "WebpackError"
+
+		this.error = error
+		this.stats = stats
+	}
 }
+
+module.exports = (options) => new Promise((resolve, reject) => webpack(options).run((error, stats) => {
+	if (error || stats.hasErrors()) reject(new WebpackError(error, stats))
+	else resolve(stats)
+}))

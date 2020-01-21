@@ -1,14 +1,20 @@
+import webpack from "webpack"
+
 /**
- * My awesome module.
- * @param input Lorem ipsum.
- * @param postfix Lorem ipsum.
+ * Promise support for Webpack.
+ * @param options Options.
  * @example
  * ```
- * const theModule = require("the-module");
- * theModule("unicorns");
- * //=> 'unicorns & rainbows'
+ * const webpack = require("p-webpack");
+ *
+ * await webpack({
+ *		entry: "entry.js",
+ *		output: {
+ *			filename: "entry.bundle.js"
+ *		}
+ *	})
  * ```
 */
-declare function theModule(input: string, { postfix }: { postfix?: string }): string;
+declare function webpack(options?: webpack.Configuration): Promise<webpack.Stats>;
 
-export = theModule;
+export = webpack;
